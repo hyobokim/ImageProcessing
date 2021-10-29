@@ -1,0 +1,22 @@
+create checkerboard 10 10 (255 255 255) (0 0 0) #create a black and white checkerboard image
+create checkerboard 10 10 (255 0 0) (0 0 255) #create a red and blue checkerboard image as a new layer
+select 1 #select the first layer
+blur #blur the selected layer
+sharpen #sharpen the selected layer
+remove 1 #remove the first layer
+grayscale #makes the selected layer grayscale
+create checkerboard 10 10 (255 255 255) (0 0 0) #create a black and white checkerboard image as a new layer
+sepia #applies the sepia filter to the selected layer
+toggle 2 #toggles the visibility of the second layer
+export script1output/GrayscaleCheckerboard.png png #export the topmost visible layer as a png
+remove 2 #remove the second layer
+remove 1 #remove the first layer
+import test1.jpg #imports an image
+import test1.jpg #imports an image as a new layer
+save script1output/saved jpg #saves the multi-layered image
+remove 1 #remove the first layer
+remove 1 #remove the first layer
+load script1output/saved #loads the image in "saved"
+blur #blurs the image
+export script1output/BlurryImage.ppm ppm #exports the image as a ppm
+

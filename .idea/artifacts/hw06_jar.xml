@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="hw06:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/hw06_jar</output-path>
+    <root id="archive" name="hw06.jar">
+      <element id="module-output" name="hw06" />
+    </root>
+  </artifact>
+</component>

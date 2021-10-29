@@ -1,0 +1,26 @@
+import test1.jpg #imports test1
+create checkerboard 10 36 (0 255 0) (15 0 23) #creates a checkerboard image as a new layer with 10 tiles each side, each tile 36 pixels
+toggle 1 #toggles the first layer (testImage) visibility
+select 2 #selects the second layer
+grayscale #applies greyscale on the second layer
+import test1.jpg
+import test1.jpg
+select 3 #selects the third layer
+sepia #applies sepia filter to third layer
+toggle 4
+export script2output/TestExport.png png #exports topmost visible layer as a png, which should be the third layer
+remove 4
+blur #applies blur on top of sepia for the third layer 
+select 1 #selects the first layer
+sharpen #sharpens the current layer, which is the first layer
+save script2output/LayersSaved png
+load script2output/LayersSaved #should override this whole file and replace with LayersSaved that we just saved
+select 3
+sharpen #sharpens the 3rd layer
+create checkerboard 20 18 (15 0 23) (255 0 12) #creates checkerboard, 20 tiles each side, each tile 18 pixels
+import test1.jpg
+load script2output/LayersSaved #should clean the slate
+remove 1 #removes the first layer
+toggle 2 #retoggles 2nd layer
+export script2output/NewTopmost.jpg jpg #exports the topmost layer, which should now be layer 2 after toggling
+
